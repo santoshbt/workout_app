@@ -19,7 +19,7 @@ var drawChart = function() {
  
   var data = JSONData.slice()
   
-  var parseTime = d3.timeParse("%Y-%m-%d");
+  var parseTime = d3.timeParse("%Y-%d-%m");
   
   var workoutFn = function(d) { return d.duration_in_min }
   var dateFn = function(d) { return parseTime(d.workout_date) }
