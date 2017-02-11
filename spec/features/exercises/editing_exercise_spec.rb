@@ -5,8 +5,8 @@ RSpec.feature 'Editing Exercie' do
         @user = User.create!(email: 'user@example.com', password: 'password')
         
         @user_exercise = @user.exercises.create(duration_in_min: 45,
-                                                workout: "My Body building workout"
-                                                date: Date.today)
+                                                workout: "My Body building workout",
+                                                workout_date: Date.today)
         login_as(@user)                                                
     end
     
@@ -15,7 +15,7 @@ RSpec.feature 'Editing Exercie' do
         
         click_link 'My Lounge'
         
-        path = "/users/#{@user.id}/exercises/#{@user_exercise}/edit"
+        path = "/users/#{@user.id}/exercises/#{@user_exercise.id}/edit"
         link = "a[href=\'#{path}\']"
         find(link).click
         
