@@ -11,4 +11,6 @@ class User < ApplicationRecord
   def full_name
     [first_name, last_name] * (" ")
   end
+  
+  self.per_page = 10
 end
