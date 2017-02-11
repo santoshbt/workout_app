@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Creating Exercise" do
     before do 
         @john = User.create!(email: 'john@example.com', password: 'password')
-        loging_as(@john)
+        login_as(@john)
     end
     
     scenario "with valid inputs" do
