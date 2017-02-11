@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-    before_filter :set_exercise, only: [:show, :edit, :update, :destroy]
+    before_action :set_exercise, only: [:show, :edit, :update, :destroy]
     
     def index
         @exercises = current_user.exercises
