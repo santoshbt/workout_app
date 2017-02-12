@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
   has_many :exercises
   has_many :friendships
-  has_many :friends, through: :friendships, class_name: 'user'
+  has_many :friends, through: :friendships, class_name: "User"
   
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -33,5 +33,9 @@ class User < ApplicationRecord
   
   def follows_or_same?(new_friend)
     friendships.map(&:friend).include?(new_friend) || self == new_friend
+  end
+  
+  def current_friendship(friend)
+    friendships.where(friend: friend).first
   end
 end
